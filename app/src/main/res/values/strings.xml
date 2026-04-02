@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SaveYourNotes</string>
+    <string name="Login_Button">Login</string>
 </resources>

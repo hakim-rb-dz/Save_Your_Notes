@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">SaveYourNotes</string>
+    <string name="first">Save text</string>
+    <string name="second">Save photo</string>
+    <string name="therd">Save video</string>
+    <string name="four">Save audio</string>
+    <string name="add1">add photo</string>
+    <string name="desc">Description</string>
+    <string name="title">Title</string>
+    <string name="add2">add video</string>
+    <string name="add3">add audio</string>
+    <string name="text">Text</string>
+    <string name="save">Save</string>
 </resources>

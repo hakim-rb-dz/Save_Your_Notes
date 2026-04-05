@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:drawable/alert_light_frame"
+    android:visibility="visible"
+    tools:context=".MainActivity"
+    tools:visibility="visible">
+
+
+    <ImageView
+        android:id="@+id/notelogo"
+        android:layout_width="200dp"
+        android:layout_height="250dp"
+        android:layout_marginBottom="600dp"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.084"
+        app:srcCompat="@drawable/notelogo" />
+
+    <EditText
+        android:id="@+id/Email..."
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/input_style"
+        android:drawableEnd="@drawable/baseline_email_24"
+        android:ems="10"
+        android:inputType="text"
+        android:paddingHorizontal="15dp"
+        android:text="Email..."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.219"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/notelogo" />
+
+    <EditText
+        android:id="@+id/Password..."
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="76dp"
+        android:background="@drawable/input_style"
+        android:drawableEnd="@android:drawable/ic_lock_lock"
+        android:ems="10"
+        android:inputType="text"
+        android:paddingHorizontal="15dp"
+        android:text="Password..."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.208"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/notelogo" />
+
+    <Button
+        android:id="@+id/signupburron"
+        android:layout_width="150dp"
+        android:layout_height="51dp"
+        android:background="@drawable/bg_button"
+        android:text="Login "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.436"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="485dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="300dp"
+        android:layout_height="51dp"
+        android:background="@color/orange"
+        android:text="sign up"
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="630dp" />
+
+    <TextView
+        android:id="@+id/forgotpassword"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:text="forgot password"
+        android:textColor="@color/blue"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.608"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="394dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

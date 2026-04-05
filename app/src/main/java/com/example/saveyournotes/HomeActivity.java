@@ -1,7 +1,9 @@
 package com.example.saveyournotes;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.View;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,22 +16,26 @@ public class HomeActivity extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
     ImageView menuBtn;
-    FloatingActionButton fabAdd;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
+        FloatingActionButton fab =findViewById(R.id.fabAdd);
         drawerLayout = findViewById(R.id.drawer_layout);
         menuBtn = findViewById(R.id.menuBtn);
-        fabAdd = findViewById(R.id.fabAdd);
+
 
         // Open the drawer when menu button clicked
         menuBtn.setOnClickListener(v -> drawerLayout.openDrawer(Gravity.LEFT));
 
-        fabAdd.setOnClickListener(v -> {
-            // TODO: Open add note screen
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(HomeActivity.this,page2.class);
+                startActivity(intent);
+            }
         });
     }
 }

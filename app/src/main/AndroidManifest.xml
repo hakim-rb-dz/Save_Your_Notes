@@ -26,6 +26,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".page2"
+            android:exported="false"/>
+        <activity android:name=".page3"
+            android:exported="false"/>
+        <activity android:name=".page4"
+            android:exported="false"/>
+        <activity android:name=".page5"
+            android:exported="false"/>
+        <activity android:name=".page6"
+            android:exported="false"/>
     </application>
 
 </manifest>

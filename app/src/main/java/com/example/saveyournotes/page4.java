@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
-import com.example.saveyournotes.Note ;
+
 import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -88,26 +88,28 @@ public class page4 extends AppCompatActivity {
                 // uplpoad the photo
                 uploadPhotoAndSave(title, desc);
             }
-        });
-        private void uploadPhotoAndSave (String title, String desc){
-            String userid = auth.getCurrentUser().getUid();
-            StorageReference imageRef = storageRef.child("images").child(userid).child(System.currentTimeMillis() + ".jpg");
-            imageRef.putFile(selectedImageUri).addOnSuccessListener(taskSnapshot -> {
-                        imageRef.getDownloadUrl().addOnSuccessListener(uri -> {
-                            String imageUrl = uri.toString();
-                            Note note = new Note(title, imageUrl, userid, "photo");
-                            database.collection("notes").add(note).addOnSuccessListener(doc -> {
-                                Toast.makeText(page4.this, "photo saved successfully", Toast.LENGTH_SHORT).show();
-                                finish();
-                            }).addOnFailureListener(e -> {
-                                Toast.makeText(page4.this, "failed to save: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            void uploadPhotoAndSave(String title, String desc) {
+                String userid = auth.getCurrentUser().getUid();
+                StorageReference imageRef = storageRef.child("images").child(userid).child(System.currentTimeMillis() + ".jpg");
+                imageRef.putFile(selectedImageUri).addOnSuccessListener(taskSnapshot -> {
+                            imageRef.getDownloadUrl().addOnSuccessListener(uri -> {
+                                String imageUrl = uri.toString();
+                                Note note = new Note(title, imageUrl, userid, "photo");
+                                database.collection("notes").add(note).addOnSuccessListener(doc -> {
+                                    Toast.makeText(page4.this, "photo saved successfully", Toast.LENGTH_SHORT).show();
+                                    finish();
+                                }).addOnFailureListener(e -> {
+                                    Toast.makeText(page4.this, "failed to save: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                                });
                             });
+                        })
+                        .addOnFailureListener(e -> {
+                            Toast.makeText(page4.this,
+                                    "failed to upload: " + e.getMessage(),
+                                    Toast.LENGTH_LONG).show();
                         });
-                    })
-                    .addOnFailureListener(e -> {
-                        Toast.makeText(page4.this,
-                                "failed to upload: " + e.getMessage(),
-                                Toast.LENGTH_LONG).show();
-                    });
-        }
+            }
+        });
+
     }
+}

@@ -18,8 +18,6 @@ import com.example.saveyournotes.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
-import com.example.saveyournotes.Note ;
-import com.example.saveyournotes.NoteAdapter ;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 public class HomeActivity extends AppCompatActivity {
@@ -72,7 +70,7 @@ public class HomeActivity extends AppCompatActivity {
 
         String userid = auth.getCurrentUser().getUid();
 
-        database.collection("notes").whereEqualTo("userid", userid).get().addOnSuccessListener(queryDocumentSnapshots -> {
+        database.collection("notes").whereEqualTo("userId", userid).get().addOnSuccessListener(queryDocumentSnapshots -> {
                     notes.clear();
                     for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
                         Note note = document.toObject(Note.class);

@@ -11,10 +11,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.saveyournotes.page3;
-import com.example.saveyournotes.page4;
-import com.example.saveyournotes.page5;
-import com.example.saveyournotes.page6;
 
 public class page2 extends AppCompatActivity {
 

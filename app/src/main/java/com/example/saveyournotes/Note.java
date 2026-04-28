@@ -17,6 +17,7 @@ public class Note {
         this.userid = userid;
         this.notetype = notetype;
     }
+
 // getters and setters
     public String getnoteid()               {
         return noteid; }
@@ -36,7 +37,7 @@ public class Note {
     public String getUserId()               {
         return userid; }
     public void setUserId(String userId)    {
-        this.userid = userid; }
+        this.userid = userId; }
 
     public String getnotetype()                 {
         return notetype; }

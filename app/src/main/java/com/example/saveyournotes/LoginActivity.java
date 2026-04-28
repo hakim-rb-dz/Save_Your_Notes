@@ -22,7 +22,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.login_activity);
+        setContentView(R.layout.login_activity)
+        ;
         FirebaseAuth auth2;
         auth2 = FirebaseAuth.getInstance();
         Button btn = findViewById(R.id.button3);

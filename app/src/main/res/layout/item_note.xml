@@ -23,15 +23,16 @@
             android:textStyle="bold"
             android:textColor="#121212"
             android:layout_marginBottom="6dp"/>
+
+
         <TextView
             android:id="@+id/tvNoteType"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textStyle="bold"
+            android:layout_marginBottom="6dp"
             android:textColor="#121212"
-            android:layout_marginBottom="6dp"/>
-
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvNoteContent"

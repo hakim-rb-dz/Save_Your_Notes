@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "829250841217",
+    "project_id": "saveyournote-1bc35",
+    "storage_bucket": "saveyournote-1bc35.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:829250841217:android:ad22bb25d1f19b21ac7b80",
+        "android_client_info": {
+          "package_name": "com.example.saveyournotes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDc9eGZbwy-_qdzmaPJY708ruEhYEOHDs0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -51,6 +51,7 @@ dependencies {
     implementation(libs.googleid)
     implementation(libs.firebase.storage)
     implementation(libs.room.common.jvm)
+    implementation(libs.cardview)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

@@ -88,30 +88,30 @@ EditText editTitle = findViewById(R.id.edit2);
                 // uplpoad the photo
                 uploadvideoAndSave(title, desc);
             }
-        });
-        private void uploadPhotoAndSave (String title, String desc){
-            String userid = auth.getCurrentUser().getUid();
-            StorageReference imageRef = storageRef.child("video").child(userid).child(System.currentTimeMillis() + ".mp4");
-            imageRef.putFile(selectedvideoUri).addOnSuccessListener(taskSnapshot -> {
-                        imageRef.getDownloadUrl().addOnSuccessListener(uri -> {
-                            String imageUrl = uri.toString();
-                            Note note = new Note(title, imageUrl, userid, "photo");
-                            database.collection("notes").add(note).addOnSuccessListener(doc -> {
-                                Toast.makeText(page5.this, "photo saved successfully", Toast.LENGTH_SHORT).show();
-                                finish();
-                            }).addOnFailureListener(e -> {
-                                Toast.makeText(page5.this, "failed to save: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            private void uploadvideoAndSave (String title, String desc){
+                String userid = auth.getCurrentUser().getUid();
+                StorageReference imageRef = storageRef.child("video").child(userid).child(System.currentTimeMillis() + ".mp4");
+                imageRef.putFile(selectedvideoUri).addOnSuccessListener(taskSnapshot -> {
+                            imageRef.getDownloadUrl().addOnSuccessListener(uri -> {
+                                String imageUrl = uri.toString();
+                                Note note = new Note(title, imageUrl, userid, "photo");
+                                database.collection("notes").add(note).addOnSuccessListener(doc -> {
+                                    Toast.makeText(page5.this, "photo saved successfully", Toast.LENGTH_SHORT).show();
+                                    finish();
+                                }).addOnFailureListener(e -> {
+                                    Toast.makeText(page5.this, "failed to save: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                                });
                             });
+                        })
+                        .addOnFailureListener(e -> {
+                            Toast.makeText(page5.this,
+                                    "failed to upload: " + e.getMessage(),
+                                    Toast.LENGTH_LONG).show();
                         });
-                    })
-                    .addOnFailureListener(e -> {
-                        Toast.makeText(page5.this,
-                                "failed to upload: " + e.getMessage(),
-                                Toast.LENGTH_LONG).show();
-                    });
-        }
+            }
+        });
+
     }
 
 
-}
 }

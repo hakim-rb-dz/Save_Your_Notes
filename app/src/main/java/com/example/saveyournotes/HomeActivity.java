@@ -2,8 +2,11 @@ package com.example.saveyournotes;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -35,6 +38,7 @@ public class HomeActivity extends AppCompatActivity {
     NoteAdapter adapter;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +51,7 @@ public class HomeActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         notes = new ArrayList<>();
         adapter = new NoteAdapter(notes);
+        EditText searchBar = findViewById(R.id.searchBar);
 
 
         recyclerNotes.setLayoutManager(new LinearLayoutManager(this));
@@ -64,6 +69,21 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
         loadNotes();
+        searchBar.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                adapter.Search(s.toString());
+                adapter.notifyDataSetChanged();
+            }
+
+
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
     }
 
     private void loadNotes() {
@@ -78,6 +98,10 @@ public class HomeActivity extends AppCompatActivity {
                         notes.add(note);
                     }
                     adapter.notifyDataSetChanged();
+                    adapter.AllNotes.clear();
+                    for(Note note : notes){
+                        adapter.AllNotes.add(note);
+                    }
 
                     if (notes.isEmpty()) {
                         Toast.makeText(HomeActivity.this,
@@ -89,7 +113,11 @@ public class HomeActivity extends AppCompatActivity {
                     Toast.makeText(HomeActivity.this,
                             "failed: " + e.getMessage(), Toast.LENGTH_LONG).show();
                 });
+
     }
+
+
+
 }
 
 
